@@ -24,7 +24,8 @@ function requireAuth(req, res, next) {
 router.get('/', (req, res, next) => {
   res.render('content/index', {
     title: 'Home',
-    games: ''
+    games: '',
+    displayName: req.user ? req.user.displayName : ''
    });
 });
 
@@ -32,7 +33,8 @@ router.get('/', (req, res, next) => {
 router.get('/contact', (req, res, next) => {
   res.render('content/contact', {
     title: 'Contact',
-    games: ''
+    games: '',
+    displayName: req.user ? req.user.displayName : ''
    });
 });
 
