@@ -46,7 +46,7 @@ router.get('/login', (req, res, next)=>{
     res.render('auth/login', {
       title: "Login",
       games: '',
-      messages: req.flash('loginMessage'),
+      messages: req.flash('error'),
       displayName: req.user ? req.user.displayName : ''
     });
     return;
@@ -59,7 +59,7 @@ router.get('/login', (req, res, next)=>{
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/games',
   failureRedirect: '/login',
-  failureFlash: 'bad login'
+  failureFlash: true
 }));
 
 // GET /register - render the registration view
